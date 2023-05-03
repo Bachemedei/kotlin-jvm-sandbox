@@ -1,10 +1,22 @@
 plugins {
     kotlin("jvm") version "1.8.0"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.8.0"
+    id("org.jetbrains.kotlinx.benchmark") version "0.4.7"
     kotlin("plugin.serialization") version "1.8.0"
 }
 
-group = "dev.bcmedeiros"
+group = "dev.bachemedei"
 version = "1.0-SNAPSHOT"
+
+allOpen {
+    annotation("org.openjdk.jmh.annotations.State")
+}
+
+benchmark {
+    targets {
+        register("main")
+    }
+}
 
 repositories {
     mavenCentral()
@@ -12,13 +24,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-
-    implementation("io.ktor:ktor-client-core:2.2.2")
-    implementation("io.ktor:ktor-client-java:2.2.2")
-    implementation("io.ktor:ktor-client-content-negotiation:2.2.2")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.2.2")
-
-    testImplementation(kotlin("test"))
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.7")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.3.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
 }
