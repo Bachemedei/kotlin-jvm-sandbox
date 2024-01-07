@@ -1,14 +1,22 @@
 plugins {
-    kotlin("jvm") version "1.9.0"
-    kotlin("plugin.serialization") version "1.9.0"
+    kotlin("jvm") version "1.9.20"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.9.20"
+    id("org.jetbrains.kotlinx.benchmark") version "0.4.10"
+    kotlin("plugin.serialization") version "1.9.20"
 }
 
-tasks.test {
-    useJUnitPlatform()
-}
-
-group = "dev.bcmedeiros"
+group = "dev.bachemedei"
 version = "1.0-SNAPSHOT"
+
+allOpen {
+    annotation("org.openjdk.jmh.annotations.State")
+}
+
+benchmark {
+    targets {
+        register("main")
+    }
+}
 
 repositories {
     mavenCentral()
@@ -16,14 +24,8 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-
-    implementation("io.ktor:ktor-client-core:2.2.2")
-    implementation("io.ktor:ktor-client-java:2.2.2")
-    implementation("io.ktor:ktor-client-content-negotiation:2.2.2")
-    implementation("io.ktor:ktor-serialization-kotlinx-json:2.2.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-benchmark-runtime:0.4.10")
+    implementation(group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version = "1.6.2" )
 
     testImplementation(kotlin("test"))
-    testImplementation(group = "org.junit.jupiter", name = "junit-jupiter-params", version = "5.5.2")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
 }
