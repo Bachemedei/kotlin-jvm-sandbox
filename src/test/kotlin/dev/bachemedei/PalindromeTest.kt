@@ -1,3 +1,5 @@
+package dev.bachemedei
+
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.MethodSource
@@ -8,8 +10,8 @@ class PalindromeTest {
     @MethodSource("args")
     fun testPalindrome(input: String, acceptedOutputs: List<String>) {
         println((0..1).count())
-        val result = longestPalindrome(input)
-        assertTrue(acceptedOutputs.contains(result), "Expected $result to be one of $acceptedOutputs")
+        val result = longestPalindrome2(input)
+        assertTrue(acceptedOutputs.contains(result), "Expected $acceptedOutputs, got $result")
     }
 
     private companion object {
