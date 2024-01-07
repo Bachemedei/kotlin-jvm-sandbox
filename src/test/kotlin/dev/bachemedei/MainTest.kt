@@ -1,3 +1,5 @@
+package dev.bachemedei
+
 import kotlin.test.Test
 import kotlin.test.assertTrue
 
