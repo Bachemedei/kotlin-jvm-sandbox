@@ -21,10 +21,10 @@ class Benchmarks {
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    fun benchmarkSolution() {
-        TestData.data.forEach {
-            TODO()
+    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    fun benchmarkSolution2() {
+        TestData.benchmarkInput.forEach { (input1, input2) ->
+            finalSolution(input1, input2)
         }
     }
 }
