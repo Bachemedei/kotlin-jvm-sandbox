@@ -18,5 +18,14 @@ class Benchmarks {
             solution1(it.inputValue)
         }
     }
+
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    fun benchmarkSolution2() {
+        TestData.data.forEach {
+            solution2(it.inputValue)
+        }
+    }
 }
 
