@@ -1,6 +1,22 @@
 [
   {
-    "inputValue": "",
-    "outputValues": []
+    "inputValue": 1534236469,
+    "outputValue": 0
+  },
+  {
+    "inputValue": 123,
+    "outputValue": 321
+  },
+  {
+    "inputValue": -123,
+    "outputValue": -321
+  },
+  {
+    "inputValue": 120,
+    "outputValue": 21
+  },
+  {
+    "inputValue": 2147483647,
+    "outputValue": 0
   }
 ]

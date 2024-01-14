@@ -7,15 +7,15 @@ import java.util.*
 import java.util.concurrent.TimeUnit
 
 @State(Scope.Benchmark)
-@Warmup(iterations = 1)
-@Measurement(iterations = 1, timeUnit = TimeUnit.SECONDS)
+@Warmup(iterations = 0)
+@Measurement(iterations = 1, timeUnit = TimeUnit.MILLISECONDS)
 class Benchmarks {
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
-    @OutputTimeUnit(TimeUnit.MILLISECONDS)
-    fun benchmarkSolution() {
+    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    fun benchmarkSolution1() {
         TestData.data.forEach {
-            TODO()
+            solution1(it.inputValue)
         }
     }
 }
