@@ -1,6 +1,34 @@
 [
   {
-    "inputValue": "",
-    "outputValues": []
+    "inputValue": "(([]){})",
+    "outputValue": true
+  },
+  {
+    "inputValue": "({[)",
+    "outputValue": false
+  },
+  {
+    "inputValue": "{[]}",
+    "outputValue": true
+  },
+  {
+    "inputValue": "()",
+    "outputValue": true
+  },
+  {
+    "inputValue": "()[]{}",
+    "outputValue": true
+  },
+  {
+    "inputValue": "(]",
+    "outputValue": false
+  },
+  {
+    "inputValue": "([)]",
+    "outputValue": false
+  },
+  {
+    "inputValue": "]",
+    "outputValue": false
   }
 ]
