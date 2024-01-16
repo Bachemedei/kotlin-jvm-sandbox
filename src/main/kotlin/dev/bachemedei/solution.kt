@@ -1,17 +1,30 @@
 package dev.bachemedei
 
-fun isValid(s: String): Boolean {
+import java.util.Stack
+
+fun isValid1(s: String): Boolean {
     var expected = ""
     s.forEachIndexed { index, brace ->
         expected = if (brace.isClosingBrace()) {
             when {
                 expected.isEmpty() -> return false
-                s.length < index + expected.length -> return false
                 expected.first() != brace -> return false
                 else -> expected.substring(1)
             }
         } else {
             brace.getMatchingBrace() + expected
+        }
+    }
+    return expected.isEmpty()
+}
+
+fun isValid2(s: String): Boolean {
+    val expected = Stack<Char>()
+    s.forEach { brace ->
+        when {
+            brace.isClosingBrace() && expected.isEmpty() -> return false
+            brace.isClosingBrace() && expected.pop() != brace -> return false
+            !brace.isClosingBrace() -> expected.push(brace.getMatchingBrace())
         }
     }
     return expected.isEmpty()
