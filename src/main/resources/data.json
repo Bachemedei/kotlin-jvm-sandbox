@@ -1,6 +1,17 @@
 [
   {
-    "inputValue": "",
-    "outputValue": ""
+    "inputValue1": [1,2,4],
+    "inputValue2": [1,3,4],
+    "outputValue": [1,1,2,3,4,4]
+  },
+  {
+    "inputValue1": [],
+    "inputValue2": [],
+    "outputValue": []
+  },
+  {
+    "inputValue1": [],
+    "inputValue2": [0],
+    "outputValue": [0]
   }
 ]
