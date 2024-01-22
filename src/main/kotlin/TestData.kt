@@ -1,3 +1,4 @@
+import dev.bachemedei.toNode
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import java.nio.file.Files
@@ -6,6 +7,9 @@ import java.util.*
 
 object TestData {
     val data = getJson("data.json")
+    val benchmarkData = data.map {
+        it.inputValue1.toNode() to it.inputValue2.toNode()
+    }
 
     private fun getJson(fileName: String): List<BenchmarkData> {
         val path = Paths.get(Objects.requireNonNull(TestData::class.java.getResource(fileName)).toURI())
