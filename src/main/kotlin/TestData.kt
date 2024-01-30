@@ -15,4 +15,4 @@ object TestData {
 }
 
 @Serializable
-data class BenchmarkData(val inputValue: String, val outputValue: String)
+data class BenchmarkData(val inputValue: IntArray, val outputValue: Int)
